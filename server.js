@@ -7,7 +7,10 @@ dotenv.config(); // Cargar variables de entorno
 
 const app = express();
 
-app.use(cors()); // 👈 habilita CORS
+// ⚠️ Habilita CORS SOLO para tu frontend en producción
+app.use(cors({ origin: 'https://frontend-irongames.vercel.app' }));
+
+/*app.use(cors()); // 👈 habilita CORS*/
 app.use(express.json()); // Permite recibir datos JSON
 
 // Rutas
